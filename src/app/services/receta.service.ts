@@ -11,27 +11,27 @@ export class RecetaService {
   constructor(private http: HttpClient) { }
 
   crearReceta(receta: Receta) {
-    return this.http.post<Receta>('http://27.0.172.244:8080/receta/crear', receta);
+    return this.http.post<Receta>('https://recibook-production.up.railway.app/receta/crear', receta);
   }
 
   modificarReceta(receta: Receta) {
-    return this.http.post<Receta>('http://27.0.172.244:8080/receta/modificar', receta);
+    return this.http.post<Receta>('https://recibook-production.up.railway.app/receta/modificar', receta);
   }
 
   borrarReceta(idReceta: number) {
-    return this.http.delete<HttpStatusCode>('http://27.0.172.244:8080/receta/borrar?idReceta=' + idReceta);
+    return this.http.delete<HttpStatusCode>('https://recibook-production.up.railway.app/receta/borrar?idReceta=' + idReceta);
   }
 
   verReceta(idReceta: number) {
-    return this.http.get<Receta>('http://27.0.172.244:8080/receta/ver?idReceta=' + idReceta);
+    return this.http.get<Receta>('https://recibook-production.up.railway.app/receta/ver?idReceta=' + idReceta);
   }
 
   listarRecetas(email: string) {
-    return this.http.get<Receta[]>('http://27.0.172.244:8080/usuario/recetasUsuario?email=' + email);
+    return this.http.get<Receta[]>('https://recibook-production.up.railway.app/usuario/recetasUsuario?email=' + email);
   }
 
  borrarIngrediente(idRecetaIngrediente: number) {
-   return this.http.delete<HttpStatusCode>('http://27.0.172.244:8080/usuario/borrarIngrediente?idRecetaIngrediente=' + idRecetaIngrediente)
+   return this.http.delete<HttpStatusCode>('https://recibook-production.up.railway.app/usuario/borrarIngrediente?idRecetaIngrediente=' + idRecetaIngrediente)
  }
 
   // crearRecetaIngrediente(recetaIngrediente: RecetaIngrediente){

@@ -15,27 +15,27 @@ export class UsuarioService {
 
 
   inicioSesion(email: string, password: string): Observable<Usuario> {
-    return this.http.get<Usuario>('http://27.0.172.244:8080/usuario/login?email=' + email + '&password=' + password);
+    return this.http.get<Usuario>('https://recibook-production.up.railway.app/usuario/login?email=' + email + '&password=' + password);
   }
 
   registro(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>('http://27.0.172.244:8080/usuario/registro', usuario);
+    return this.http.post<Usuario>('https://recibook-production.up.railway.app/usuario/registro', usuario);
   }
 
   checkEmail(email: string) {
-    return this.http.get('http://27.0.172.244:8080/usuario/checkEmail?email=' + email);
+    return this.http.get('https://recibook-production.up.railway.app/usuario/checkEmail?email=' + email);
   }
 
   checkDni(dni: string) {
-    return this.http.get('http://27.0.172.244:8080/usuario/checkDni?dni=' + dni);
+    return this.http.get('https://recibook-production.up.railway.app/usuario/checkDni?dni=' + dni);
   }
 
   verPerfil(email: string) {
-    return this.http.get('http://27.0.172.244:8080/usuario/admin/buscarUsuario?email=' + email);
+    return this.http.get('https://recibook-production.up.railway.app/usuario/admin/buscarUsuario?email=' + email);
   }
 
   modificar(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>('http://27.0.172.244:8080/usuario/modificar', usuario);
+    return this.http.post<Usuario>('https://recibook-production.up.railway.app/usuario/modificar', usuario);
   }
 
 }

@@ -10,23 +10,23 @@ export class LocalService {
   constructor(private http: HttpClient) { }
 
  localesUsuario(email: string){
-  return this.http.get<[Local]>('http://27.0.172.244:8080/usuario/localesUsuario?email=' + email);
+  return this.http.get<[Local]>('https://recibook-production.up.railway.app/usuario/localesUsuario?email=' + email);
  }
 
  crearLocal(local: Local){
-  return this.http.post<Local>('http://27.0.172.244:8080/local/crear', local);
+  return this.http.post<Local>('https://recibook-production.up.railway.app/local/crear', local);
  }
 
  modificarLocal(local: Local) {
-  return this.http.post<Local>('http://27.0.172.244:8080/local/modificar', local);
+  return this.http.post<Local>('https://recibook-production.up.railway.app/local/modificar', local);
  }
 
  borrarlocal(idLocal: number){
-  return this.http.delete<HttpStatusCode>('http://27.0.172.244:8080/local/borrar?idLocal=' + idLocal);
+  return this.http.delete<HttpStatusCode>('https://recibook-production.up.railway.app/local/borrar?idLocal=' + idLocal);
  }
 
  verLocal(idLocal: number){
-  return this.http.get<Local>('http://27.0.172.244:8080/local/ver?idLocal=' + idLocal);
+  return this.http.get<Local>('https://recibook-production.up.railway.app/local/ver?idLocal=' + idLocal);
  }
 
 }

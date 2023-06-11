@@ -10,27 +10,27 @@ export class EscandalloService {
   constructor(private http: HttpClient) { }
 
   listarEscandallos(email: string){
-    return this.http.get<Escandallo[]>('http://27.0.172.244:8080/usuario/escandallosUsuario?email=' + email);
+    return this.http.get<Escandallo[]>('https://recibook-production.up.railway.app/usuario/escandallosUsuario?email=' + email);
   }
 
   crearEscandallo(escandallo: Escandallo){
-    return this.http.post<Escandallo>('http://27.0.172.244:8080/escandallo/crear', escandallo);
+    return this.http.post<Escandallo>('https://recibook-production.up.railway.app/escandallo/crear', escandallo);
   }
 
   modificarEscandallo(escandallo: Escandallo){
-    return this.http.post<Escandallo>('http://27.0.172.244:8080/escandallo/modificar', escandallo);
+    return this.http.post<Escandallo>('https://recibook-production.up.railway.app/escandallo/modificar', escandallo);
   }
 
   borrarEscandallo(idEscandallo: number) {
-    return this.http.delete<HttpStatusCode>('http://27.0.172.244:8080/escandallo/borrar?idEscandallo=' + idEscandallo);
+    return this.http.delete<HttpStatusCode>('https://recibook-production.up.railway.app/escandallo/borrar?idEscandallo=' + idEscandallo);
   }
 
   verEscandallo(idEscandallo: number) {
-    return this.http.get<Escandallo>('http://27.0.172.244:8080/escandallo/ver?idEscandallo=' + idEscandallo);
+    return this.http.get<Escandallo>('https://recibook-production.up.railway.app/escandallo/ver?idEscandallo=' + idEscandallo);
   }
 
   borrarIngrediente(idEscandalloIngrediente: number) {
-    return this.http.delete<HttpStatusCode>('http://27.0.172.244:8080/escandallo/borrarIngrediente?idEscandalloIngrediente=' + idEscandalloIngrediente)
+    return this.http.delete<HttpStatusCode>('https://recibook-production.up.railway.app/escandallo/borrarIngrediente?idEscandalloIngrediente=' + idEscandalloIngrediente)
   }
 
 
