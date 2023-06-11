@@ -1,0 +1,28 @@
+<section class="get-in-touch">
+  <h1 class="title">Modifica un local</h1>
+  <form class="contact-form row" needs-validation [formGroup]="formModificarLocal" (ngSubmit)="modificarLocal()">
+     <div class="form-field col-lg-6">
+        <input id="nombre" class="input-text js-input" formControlName="nombreLocal" type="text" required>
+        <label class="label" for="nombre">Nombre del local</label>
+     </div>
+     <div class="form-field col-lg-6 ">
+        <input id="email" class="input-text js-input" formControlName="email" type="email" required>
+        <label class="label"  for="email">Correo electrónico</label>
+     </div>
+     <div class="form-field col-lg-6 ">
+        <input id="cif" class="input-text js-input" formControlName="cif" type="text" required>
+        <label class="label"  for="cif">CIF</label>
+     </div>
+      <div class="form-field col-lg-6 ">
+        <input id="telefono" formControlName="telefono" class="input-text js-input" type="text" required>
+        <label class="label"  for="telefono">Teléfono de contacto</label>
+     </div>
+     <div class="form-field col-lg-12">
+        <input id="direccion" formControlName="direccion" class="input-text js-input" type="text" required>
+        <label class="label" for="direccion">Dirección</label>
+     </div>
+     <div class="form-field col-lg-12">
+        <button class="submit-btn" type="submit">Modificar local</button>
+     </div>
+  </form>
+</section>

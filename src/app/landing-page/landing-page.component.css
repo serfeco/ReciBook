@@ -1,0 +1,52 @@
+.landing{
+  width: 100%;
+  background-size: cover;
+  background: #ffffff;
+  overflow-x: hidden;
+
+}
+.logo{
+  padding: 1em;
+  max-height: 100px;
+}
+
+.logocompleto{
+  display: none;
+}
+
+.imgCarrusel{
+  object-fit: cover;
+  width: 100vw;
+ height: 35em;
+
+}
+.imgPadre::before{
+ content:"";
+ position: absolute;
+
+ width: 100vw;
+ height: 35em;
+ background: linear-gradient(1turn, #00000083 20%,  rgba(255, 255, 255, 0) 50%, #ffffff00);
+}
+.featurette{
+  width: 90%;
+  margin: auto;
+}
+
+@media (max-width: 500px ) {
+
+  .logofoto{
+    display: none;
+  }
+
+  .logonombre{
+    display: none;
+  }
+  .logocompleto{
+    display: block;
+    height: 200px;
+  }
+
+}
+
+

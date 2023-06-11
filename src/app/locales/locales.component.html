@@ -1,0 +1,40 @@
+<div class="container min-vh-100 ">
+  <h1 class="title ms-3 mt-5 text-center mb-5">Mis Locales</h1>
+  <div class="text-center justify-content-center mt-5">
+    <button class="btn btn-outline-primary " routerLink="crearLocal">
+      <h5>Crear Local +</h5>
+    </button>
+  </div>
+  <router-outlet></router-outlet>
+
+  <div class="row pt-5 m-auto">
+    <div *ngFor="let local of locales" class="col-md-6 col-lg-4 pb-3 mb-2">
+      <div class="card card-custom bg-white border-white border-0">
+        <div class="card-custom-img"
+          style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);">
+        </div>
+        <div class="card-custom-avatar">
+          <img class="img-fluid" src="../../assets/restaurante.png" alt="img-local" />
+        </div>
+        <div class="card-body" style="overflow-y: auto">
+          <h4 class="card-title">{{local.nombreLocal}}</h4>
+          <p class="card-text">CIF: {{local.cif}}<br>
+            {{local.direccion}}<br>
+            {{local.email}}<br>
+            Tlfn: {{local.telefono}}</p>
+        </div>
+        <div class="card-footer" style="background: inherit; border-color: inherit;">
+
+          <button class="btn btn-outline-dark" (click)="irAModificar()"  #botonModificarLocal
+            [routerLink]="['modificarLocal', local.idLocal]">Modificar Local</button>
+
+            &nbsp;&nbsp;&nbsp;
+
+          <button class="btn btn-warning" (click)="borrarLocal(local.idLocal)">Borrar Local</button>
+          {{borrado}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

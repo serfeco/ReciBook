@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row m-5 no-gutters shadow-lg">
+    <div class="col-md-6 d-none d-md-block">
+      <img src="../../assets/pexels-cottonbro-studio-4253312.jpg" class="img-fluid"
+        style="min-height:100%; margin-left: -11px;" />
+    </div>
+
+    <div class="col-md-6 bg-white p-5 cartaRegistro ">
+      <h3 class="pb-3 mt-5">Registrese<h5>y comience a crear sus recetas</h5>
+      </h3>
+      <div class="form-style">
+        <form needs-validation [formGroup]="formRegistro" (ngSubmit)="registrarse()">
+          <div class="form-group pb-3">
+            <input type="text" placeholder="Nombre *" formControlName="nombre" name="nombre" class="form-control"
+              id="nombre" required>
+
+          </div>
+
+          <div class="form-group pb-3">
+            <input type="text" placeholder="Apellidos *" formControlName="apellidos" name="apellidos"
+              class="form-control" id="apellidos" required>
+          </div>
+
+          <div class="form-group pb-3">
+            <input type="text" placeholder="DNI *" (blur)="checkDni()" formControlName="dni" name="dni"
+              class="form-control" id="dni" required>
+          </div>
+          <div class="text-danger">
+            {{errorDni}}
+          </div>
+
+          <div class="form-group pb-3">
+            <input type="email" placeholder="Correo electrónico *" (blur)="checkEmail()" formControlName="email"
+              name="email" class="form-control" id="inputemail" aria-describedby="emailHelp">
+          </div>
+          <div class="text-danger">
+            {{errorEmail}}
+          </div>
+
+          <div class="form-group pb-3">
+            <input type="password" placeholder="Contraseña *" formControlName="password" name="password"
+              class="form-control" id="password">
+          </div>
+
+          <div class="form-group pb-3">
+            <input type="password" placeholder="Repetir contraseña *" formControlName="confirmarpassword" (blur)="checkPassword()"
+              name="confirmarpassword" class="form-control" id="confirmarpassword">
+          </div>
+          <div class="text-danger">
+            {{errorPassword}}
+          </div>
+
+          <div class="form-group pb-3">
+            <input type="text" maxlength="13" minlength="9" placeholder="Teléfono" formControlName="telefono"
+              name="telefono" class="form-control" id="telefono">
+
+            <p class="text-small">Los campos que contienen "*" son obligatorios</p>
+          </div>
+
+          <div class="pb-2">
+            <button type="submit"  #botonRegistro [disabled]="formRegistro.invalid" class=" btn btn-dark w-100 font-weight-bold mt-2">Registrarse</button>
+          </div>
+        </form>
+
+        <div class="pt-4 text-center">
+          ¿Tiene una cuenta? <a routerLink="acceder">Inicie Sesión</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

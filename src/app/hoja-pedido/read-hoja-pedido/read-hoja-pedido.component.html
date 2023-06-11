@@ -1,0 +1,48 @@
+<div class="min-vh-100">
+  <div class="recipe-card">
+
+    <aside>
+
+
+      <img src='http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg' alt="img receta" />
+    </aside>
+    <article>
+           <h2>{{hoja.local!.nombreLocal}}</h2>
+
+           <h4 *ngIf="hoja.fechaPedido==null" class="card-text">Fecha de pedido:</h4>
+           <h4 *ngIf="hoja.fechaPedido!=null" class="card-text">Fecha de pedido: {{hoja.fechaPedido}}</h4>
+           <h4 *ngIf="hoja.fechaEntrega==null" class="card-text">Fecha de entrega:</h4>
+           <h4 *ngIf="hoja.fechaEntrega!=null" class="card-text">Fecha de entrega: {{hoja.fechaEntrega}}</h4>
+           <h4 *ngIf="hoja.completado==false" class="card-text">No Completado</h4>
+           <h4 *ngIf="hoja.completado==true" class="card-text">Completado</h4>
+
+           <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Ingrediente</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Unidad de medida</th>
+                <th scope="col">Precio Unitario</th>
+                <th scope="col">Precio Total</th>
+
+
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let ingrediente of listaIngredientes">
+                <th scope="row">{{ingrediente.ingrediente!.nombreIngrediente}}</th>
+                <td>{{ingrediente.cantidad}}</td>
+                <td>{{ingrediente.udMedida}}</td>
+                <td>{{ingrediente.precioUnitario}}</td>
+                <td>{{ingrediente.precioTotal}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+    </article>
+    <div class="col-lg-4 d-block"><button class="btn btn-outline-dark" routerLink="../../hoja">Volver</button></div>
+
+</div>
+</div>
+

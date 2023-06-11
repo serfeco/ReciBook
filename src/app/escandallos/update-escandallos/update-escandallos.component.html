@@ -1,0 +1,88 @@
+<section class="get-in-touch ">
+  <h1 class="title">Modifica tu Escandallo</h1>
+  <form class="contact-form row" needs-validation [formGroup]="formModificarEscandallo" (ngSubmit)="modificarEscandallo()">
+    <div class="form-field col-lg-6">
+      <input id="nombre" class="input-text js-input" formControlName="nombre" type="text" required>
+      <label class="label" for="nombre">Nombre</label>
+    </div>
+    <div class="form-field col-lg-6 ">
+      <input id="numRaciones" class="input-text js-input" formControlName="numRaciones" type="number" required>
+      <label class="label" for="numRaciones">Número de Raciones</label>
+    </div>
+
+
+    <div class="dropdown " class="dropdown-content d-block">
+
+
+      <form class="d-flex" needs-validation [formGroup]="formCrearEscandalloIngrediente">
+        <div class="mt-3 form-field col-lg-4 p-2">
+          <input type="text" placeholder="Buscar" id="buscador" (keyup)="listarIngredientes($event)"
+            class="input-text js_input">
+          <select name="lista" class="form-select" formControlName="ingrediente" id="lista">
+            <option>Ingredientes disponibles:</option>
+            <option *ngFor="let ingrediente of ingredientes" [value]="ingrediente.idIngrediente">
+              {{ingrediente.nombreIngrediente}}
+            </option>
+          </select>
+        </div>
+
+        <div class="mt-3 form-field col-lg-2 p-3">
+          <input type="number" id="cantidad" formControlName="cantidad" class="input-text js_input">
+          <label class="" style="font-size: 18px;" for="cantidad">Cantidad</label>
+        </div>
+        <div class="mt-3 form-field col-lg-2 p-3">
+          <input type="text" placeholder="gr, kg, l, cl, ml" id="udMedida" formControlName="udMedida"
+            class="input-text js_input">
+          <label class="" style="font-size: 18px;" for="udMedida">Unidad de Medida</label>
+        </div>
+        <div class="mt-3 form-field col-lg-2 p-3 ">
+          <input type="number" id="precioKg" formControlName="precioKg" class=" input-text js_input">
+          <label class="" style="font-size: 18px;" for="precioKg">Precio Kg</label>
+        </div>
+        <div class="mt-3 form-field col-lg-2 p-3">
+          <input type="number" id="precioRacion" formControlName="precioRacion" class=" input-text js_input">
+          <label class="" style="font-size: 18px;" for="precioRacion">Precio Ración</label>
+        </div>
+        <div>
+          <button (click)="crearEscandalloIngrediente()" class="btn btn-dark mt-3 form-field p-3">Agregar Ingrediente</button>
+        </div>
+      </form>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Ingrediente</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Unidad de medida</th>
+            <th scope="col">Precio Kg</th>
+            <th scope="col">Precio Ración</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ingrediente of listaEscandalloIngrediente">
+            <th scope="row">{{ingrediente.ingrediente!.nombreIngrediente}}</th>
+            <td>{{ingrediente.cantidad}}</td>
+            <td>{{ingrediente.udMedida}}</td>
+            <td>{{ingrediente.precioKg}}</td>
+            <td>{{ingrediente.precioRacion}}</td>
+            <td>
+              <button class="btn btn-warning" (click)="borrarEscandalloIngrediente(ingrediente.ingrediente!.nombreIngrediente)">Borrar</button>
+             </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+    </div>
+    <div class="form-field col-lg-6 ">
+      <input id="coste" class="input-text js-input" formControlName="coste" type="number">
+      <label class="" style="font-size: 18px;" for="coste">Coste total</label>
+    </div>
+
+    <div class="form-field col-lg-12">
+      <button class="submit-btn" type="submit">Modificar Escandallo</button>
+    </div>
+  </form>
+</section>

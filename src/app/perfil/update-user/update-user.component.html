@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row m-5 no-gutters shadow-lg ">
+    <div class="col-md-6 d-md-block mt-5">
+      <h3 class="pb-3 mt-5">Modificar mi contraseña</h3>
+      <div class="form-style m">
+      <form needs-validation [formGroup]="formPassword" (ngSubmit)="updatePassword()">
+        <div class="form-group pb-3">
+          <label for="antiguaPassword">Contraseña actual: *</label>
+          <input type="password" (blur)="existsPassword()" formControlName="antiguaPassword" name="antiguaPassword" class="form-control" id="antiguaPassword" required>
+          <div class="text-danger">
+            {{errorPassword1}}
+          </div>
+        </div>
+
+        <div class=" pb-3">
+          <label for="nuevaPassword">Nueva Contraseña: *</label>
+          <input type="password" formControlName="nuevaPassword" name="nuevaPassword" class="form-control" id="nuevaPassword"
+            required>
+        </div>
+
+        <div class=" pb-3">
+          <label for="comprobarPassword">Repetir Contraseña:</label>
+          <input type="password" (blur)="checkPassword()" formControlName="comprobarPassword" name="comprobarPassword" class="form-control"  id="comprobarPassword" required>
+          <div class="text-danger">
+            {{errorPassword2}}
+          </div>
+        </div>
+        <div class="pb-2">
+          <button type="submit" #botonPassword [disabled]="formPassword.invalid" class="btn btn-dark w-100 font-weight-bold mt-2">Cambiar Contraseña</button>
+
+        </div>
+      </form>
+      </div>
+    </div>
+
+    <div class="col-md-6 bg-white p-5 cartaRegistro">
+      <h3 class="pb-3 mt-5">Modificar mi perfil</h3>
+      <div class="form-style">
+        <div class=" pb-3">
+          <form needs-validation [formGroup]="formModificar" (ngSubmit)="modificar()">
+            <div class="form-group pb-3">
+              <label for="nombre">Nombre: *</label>
+              <input type="text" formControlName="nombre" name="nombre" class="form-control" id="nombre" required>
+            </div>
+
+            <div class=" pb-3">
+              <label for="apellidos">Apellidos: *</label>
+              <input type="text" formControlName="apellidos" name="apellidos" class="form-control" id="apellidos"
+                required>
+            </div>
+
+            <div class=" pb-3">
+              <label for="email">Correo electrónico:</label>
+              <input type="text" formControlName="email" name="email" class="readonly form-control" readonly id="email" required>
+            </div>
+
+            <div class="pb-3">
+              <label for="nombre">DNI:</label>
+              <input type="text" formControlName="dni" name="dni" class="readonly form-control" readonly id="dni" required>
+            </div>
+
+            <div class=" pb-3">
+              <label for="nombre">Teléfono:</label>
+              <input type="text" formControlName="telefono" name="telefono" class="form-control" id="telefono" required>
+              <p class="text-small">Los campos que contienen "*" son obligatorios</p>
+            </div>
+
+            <div class=" pb-3">
+            </div>
+
+
+            <div class="pb-2">
+              <button type="submit" [disabled]="formModificar.invalid" class="btn btn-dark w-100 font-weight-bold mt-2">Modificar</button>
+              <div class="text-danger">
+                {{msgError}}
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </div>

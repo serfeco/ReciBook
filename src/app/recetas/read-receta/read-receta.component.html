@@ -1,0 +1,39 @@
+<div class="min-vh-100">
+  <div class="recipe-card">
+
+    <aside>
+
+      <img *ngIf="receta.imagen!==null" src='{{receta.imagen}}' alt="img receta" />
+      <img *ngIf="receta.imagen==null" src='http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg' alt="img receta" />
+    </aside>
+    <article>
+           <h2>{{receta.nombre}}</h2>
+           <p><span class="icon icon-users m-1" *ngFor="let item of [].constructor(receta.numRaciones); let i = index"></span></p>
+           <h4>Procedimiento</h4>
+           <p>{{receta.procedimiento}}</p>
+           <h4>Observaciones</h4>
+           <p>{{receta.observaciones}}</p>
+
+           <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Ingrediente</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Unidad de medida</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let ingrediente of listaIngredientes">
+                <th scope="row">{{ingrediente.ingrediente!.nombreIngrediente}}</th>
+                <td>{{ingrediente.cantidad}}</td>
+                <td>{{ingrediente.udMedida}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+    </article>
+    <div class="col-lg-4 d-block"><button class="btn btn-outline-dark" routerLink="../../recetas">Volver</button></div>
+
+</div>
+</div>

@@ -1,0 +1,17 @@
+.service{
+  border: none;
+  background-color: transparent;
+}
+.boton:hover{
+  background-color: black;
+  color: white;
+}
+
+.card{
+  overflow-x: hidden;
+
+}
+.cardContainer{
+  border: none;
+}
+

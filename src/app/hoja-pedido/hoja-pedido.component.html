@@ -1,0 +1,43 @@
+<div class="container min-vh-100 ">
+  <h1 class="title ms-3 mt-5 text-center mb-5">Mis Hojas de Pedido</h1>
+  <div class="text-center justify-content-center mt-5">
+    <button class="btn btn-outline-primary " routerLink="crearHoja">
+      <h5>Crear Hoja de Pedido +</h5>
+    </button>
+  </div>
+  <router-outlet></router-outlet>
+
+  <div class="row pt-5 m-auto">
+    <div *ngFor="let hoja of hojas" class="col-md-6 col-lg-4 pb-3 mb-2">
+      <div class="card card-custom bg-white border-white border-0">
+
+        <div  class="card-custom-img"
+          style="background-image: url('http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg');">
+        </div>
+
+        <div class="card-custom-avatar">
+          <img class="img-fluid" src="../../assets/icons8-en-tránsito-100.png" alt="img-local" />
+        </div>
+        <div class="card-body" style="overflow-y: auto">
+          <h4 class="card-title">{{hoja.local?.nombreLocal}}</h4>
+          <p *ngIf="hoja.completado==true" class="card-text">Fecha de pedido: {{hoja.fechaPedido}}<br>
+            Completado
+            </p>
+            <p *ngIf="hoja.completado==false" class="card-text">Fecha de pedido: {{hoja.fechaPedido}}<br>
+             No Completado
+              </p>
+        </div>
+
+        <div class="card-footer" style="background: inherit; border-color: inherit; justify-items: center;">
+          <button class="btn btn-outline-primary mb-3" [routerLink]="['../verHoja', hoja.idHojaPedido]">Ver</button> &nbsp;&nbsp;
+
+          <button class="btn btn-outline-dark mb-3"  (click)="irAModificar()" #botonModificarHoja
+          [routerLink]="['modificarHoja', hoja.idHojaPedido]">Modificar</button> &nbsp;&nbsp;
+
+          <button class="btn btn-warning mb-3" (click)="borrarHoja(hoja.idHojaPedido!)">Borrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

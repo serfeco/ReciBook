@@ -1,0 +1,85 @@
+<section class="get-in-touch">
+  <h1 class="title">Modifica tu Receta</h1>
+  <form class="contact-form row" needs-validation [formGroup]="formModificarReceta" (ngSubmit)="modificarReceta()">
+    <div class="form-field col-lg-6">
+      <input id="nombre" class="input-text js-input" formControlName="nombre" type="text" required>
+      <label class="label" for="nombre">Nombre</label>
+    </div>
+    <div class="form-field col-lg-6 ">
+      <input id="numRaciones" class="input-text js-input" formControlName="numRaciones" type="number" required>
+      <label class="label" for="numRaciones">Número de Raciones</label>
+    </div>
+
+
+    <div class="dropdown " class="dropdown-content d-block">
+
+
+      <form class="d-flex" needs-validation [formGroup]="formCrearRecetaIngrediente">
+        <div class="mt-3 form-field col-lg-4 p-2">
+          <input type="text" placeholder="Buscar" id="buscador" (keyup)="listarIngredientes($event)"
+            class="input-text js_input">
+          <select name="lista" class="form-select" formControlName="ingrediente" id="lista">
+            <option>Ingredientes disponibles:</option>
+            <option *ngFor="let ingrediente of ingredientes" [value]="ingrediente.idIngrediente">
+              {{ingrediente.nombreIngrediente}}
+            </option>
+          </select>
+        </div>
+
+        <div class="mt-3 form-field col-lg-4 p-2">
+          <input type="number" id="cantidad" formControlName="cantidad" class="input-text js_input">
+          <label class="" style="font-size: 18px;" for="cif">Cantidad</label>
+        </div>
+        <div class="mt-3 form-field col-lg-4 m-3">
+          <input type="text" placeholder="gr, kg, l, cl, ml" id="udMedida" formControlName="udMedida"
+            class="input-text js_input">
+          <label class="" style="font-size: 18px;" for="cif">Unidad de Medida</label>
+        </div>
+        <div>
+          <button (click)="crearRecetaIngrediente()" class="btn btn-dark d-block">Agregar Ingrediente</button>
+        </div>
+      </form>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Ingrediente</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Unidad de medida</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ingrediente of listaRecetaIngrediente">
+            <th scope="row">{{ingrediente.ingrediente!.nombreIngrediente}}</th>
+            <td>{{ingrediente.cantidad}}</td>
+            <td>{{ingrediente.udMedida}}</td>
+            <td><button (click)="borrarRecetaIngrediente(ingrediente.ingrediente!.nombreIngrediente)"
+                class="btn btn-warning">Borrar</button></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+    </div>
+    <div class="form-field col-lg-6 ">
+      <textarea id="procedimiento" class="input-text js-input" formControlName="procedimiento"
+        type="textarea"></textarea>
+      <label class="" style="font-size: 18px;" for="cif">Procedimiento</label>
+    </div>
+    <div class="form-field col-lg-6 ">
+      <textarea id="observaciones" formControlName="observaciones" class="input-text js-input"
+        type="textarea"></textarea>
+      <label class="" style="font-size: 18px;" for="observaciones">Observaciones</label>
+    </div>
+    <div class="form-field col-lg-12">
+      <input id="imagen" formControlName="imagen" class="input-text js-input" type="text">
+      <label class="" style="font-size: 18px;" for="imagen">Introduzca la url de su imagen</label>
+    </div>
+    <div class="form-field col-lg-12">
+      <button class="submit-btn" type="submit">Modificar Receta</button>
+    </div>
+  </form>
+</section>
+

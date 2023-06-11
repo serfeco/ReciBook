@@ -1,0 +1,40 @@
+<div class="container min-vh-100 ">
+  <h1 class="title ms-3 mt-5 text-center mb-5">Mis Escandallos</h1>
+  <div class="text-center justify-content-center mt-5">
+    <button class="btn btn-outline-primary " routerLink="crearEscandallo">
+      <h5>Crear Escandallo +</h5>
+    </button>
+  </div>
+  <router-outlet></router-outlet>
+
+  <div class="row pt-5 m-auto">
+    <div *ngFor="let escandallo of escandallos" class="col-md-6 col-lg-4 pb-3 mb-2">
+      <div class="card card-custom bg-white border-white border-0">
+
+        <div  class="card-custom-img"
+          style="background-image: url('http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg');">
+        </div>
+
+        <div class="card-custom-avatar">
+          <img class="img-fluid" src="../../assets/icons8-configuración-de-la-tienda-100.png" alt="img-local" />
+        </div>
+        <div class="card-body" style="overflow-y: auto">
+          <h4 class="card-title">{{escandallo.nombre}}</h4>
+          <p class="card-text">Para {{escandallo.numRaciones}} persona/s<br>
+            Coste: {{escandallo.coste}}
+            </p>
+        </div>
+
+        <div class="card-footer" style="background: inherit; border-color: inherit; justify-items: center;">
+          <button class="btn btn-outline-primary mb-3" [routerLink]="['../verEscandallo', escandallo.idEscandallo]">Ver</button> &nbsp;&nbsp;
+
+          <button class="btn btn-outline-dark mb-3"  (click)="irAModificar()" #botonModificarEscandallo
+          [routerLink]="['modificarEscandallo', escandallo.idEscandallo]">Modificar</button> &nbsp;&nbsp;
+
+          <button class="btn btn-warning mb-3" (click)="borrarEscandallo(escandallo.idEscandallo!)">Borrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
